@@ -29,11 +29,18 @@ console.log(result4); // true
 
 function exactly(array, num, cb) {
   // Your code here
+  let counter = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (cb(array[i])) {
+      counter++;
+    }
+  }
+  return counter === num;
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
   module.exports = exactly;
-} catch(e) {
+} catch (e) {
   return null;
 }
