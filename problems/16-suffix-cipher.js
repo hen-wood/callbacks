@@ -27,17 +27,36 @@ let cipher2 = {
         return word + 'th';
     }
 };
+suffix is length 2
+word is length 4
+word.slice(2)
+
+asdf
+0123
 console.log(suffixCipher('incremental progress is very instrumental', cipher2));
 // INCREMENTAL progressth isth very INSTRUMENTAL
 *******************************************************************************/
-
+//get array with keys from cipher (suffixes)
+//see if each word has that suffix (boolean)
+//use object to access function associated with each suffix
+//execute function on each word
 function suffixCipher(sentence, cipher) {
-  // Your code here
+  let words = sentence.split(' ')
+  let suffixesArray = Object.keys(cipher)
+  for (let i = 0; i < words.length; i++) {
+    for (let j = 0; j < suffixesArray.length; j++) {
+      if (words[i].slice(words[i].length - suffixesArray[j].length) === suffixesArray[j]) {
+        words[i] = cipher[words[i]] //nice thanks! :(
+      }
+    }
+  }// for sure!
+
+  return words.join(' ')
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
   module.exports = suffixCipher;
-} catch(e) {
+} catch (e) {
   return null;
 }
