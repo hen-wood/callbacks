@@ -38,12 +38,18 @@ console.log(result6);   // true
 *******************************************************************************/
 
 function one(array, cb) {
-  // Your code here
+  let passCount = 0
+  for (let i = 0; i < array.length; i++) {
+    if (cb(array[i], i)) {
+      passCount++
+    }
+  }
+  return passCount === 1
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
   module.exports = one;
-} catch(e) {
+} catch (e) {
   return null;
 }
