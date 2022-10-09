@@ -35,7 +35,13 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
 *******************************************************************************/
 
 function mySimpleReduce(array, cb) {
-  // Your code here
+  let acc = array[0]
+  for (let index in array) {
+    if (index > 0) {
+      acc = cb(acc, array[index])
+    }
+  }
+  return acc
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/

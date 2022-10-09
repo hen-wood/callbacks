@@ -36,12 +36,20 @@ console.log(alternatingMap(['hEy', 'EVERYone', 'whats', 'uP??'], yell, whisper))
 *******************************************************************************/
 
 function alternatingMap(array, cb1, cb2) {
-  // Your code here
+  let arr = []
+  for (let index in array) {
+    if (index % 2 === 0) {
+      arr.push(cb1(array[index]))
+    } else {
+      arr.push(cb2(array[index]))
+    }
+  }
+  return arr
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
   module.exports = alternatingMap;
-} catch(e) {
+} catch (e) {
   return null;
 }
